@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparison Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3d59;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background-color: #1e3d59;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid #cccccc;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f9fb;
+        }
+
+        tr:hover {
+            background-color: #f0f5fa;
+        }
+
+        .match {
+            color: green;
+            font-weight: bold;
+        }
+
+        .forgery {
+            color: red;
+            font-weight: bold;
+        }
+
+        .logout {
+            display: inline-block;
+            margin-top: 15px;
+            color: #1e3d59;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logout:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comparison Dashboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Original Filename</th>
+                    <th>Test Filename</th>
+                    <th>Similarity (%)</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td>{{ row['id'] }}</td>
+                    <td>{{ row['original'] }}</td>
+                     <td>{{ row['test'] }}</td>
+
+                    <td>{{ row['similarity'] }}%</td>
+                    <td class="{{ 'match' if row['similarity']|float >= 70 else 'forgery' }}">
+                        {% if row['similarity']|float >= 80 %}
+                            ✅ Match
+                        {% else %}
+                            ❌ Forgery Detected
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
+

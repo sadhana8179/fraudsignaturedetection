@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fraud Signature Detection</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('{{ url_for('static', filename='bg.webp') }}') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: -1;
+    }
+    header {
+      width: 100%;
+      background-color: rgba(34, 40, 49, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #000;
+      padding-top: 100px;
+      background: url('{{ url_for('static', filename='hero.jpg') }}') no-repeat center center/cover;
+    }
+    .hero h1 {
+      font-size: 48px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+    .hero p {
+      margin-top: 20px;
+      font-size: 22px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+    section {
+      padding: 80px 50px 50px 50px;
+      background: transparent;
+    }
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #0d253f;
+    }
+    section p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: rgba(34, 40, 49, 0.9);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" />
+    Fraud Signature Detection
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="{{ url_for('comparison') }}">Comparison</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div>
+    <h1>Detect Forged Signatures Instantly</h1>
+    <p>Upload and Verify Authentic Signatures </p>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+    Fraud Signature Detection is a revolutionary platform that helps individuals and companies verify the authenticity of handwritten signatures.
+    Using advanced AI algorithms and image processing, we ensure your documents remain secure and fraud-free.
+Signature forgery is a serious issue that affects businesses, banks, and individuals. Our platform provides an easy way to verify the authenticity of signatures by analyzing image similarity, helping to protect you from fraudulent documents.
+With a simple and user-friendly interface, anyone can upload signatures and quickly check for possible forgery. We aim to make signature verification accessible.
+  </p>
+  <div class="gallery">
+    <img src="{{ url_for('static', filename='img1.jpg') }}" alt="Signature Analysis">
+  </div>
+  <p>
+    Forged signatures are signatures created to look like another's, but not actually created by the original person. This is often used for unauthorized access, like forging a check to steal money.
+Signature forgery is a common form of fraud that can lead to serious financial and legal consequences. Traditional manual verification can be slow and error-prone, which is why we developed an automated system that compares signatures by analyzing their visual features—such as shape, stroke patterns, and pixel-level differences.
+  </p>
+<footer>
+ &copy; 2025 Fraud Signature Detection | All Rights Reserved
+</footer>
+</body>
+</html>
